@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dariush — Frontend Developer</title>
+<meta name="description" content="Dariush, frontend developer. Landing pages, dashboards and interactive web apps built with HTML, CSS, JavaScript and React.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="#top" class="brand">DARIUSH<span>.DEV</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">Profile</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--outline topbar__cta">Get in touch</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO — split-flap departures board -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="tag-label"><span class="tag-dot"></span> OPEN FOR NEW PROJECTS</p>
+        <h1 class="hero__title">Interfaces that leave<br>on time, every time.</h1>
+        <p class="hero__desc">
+          I'm a frontend developer building landing pages, product dashboards and
+          interactive web apps — clean markup, readable code, no unnecessary dependencies.
+        </p>
+        <div class="hero__actions">
+          <a href="#work" class="btn btn--primary">View work</a>
+          <a href="#contact" class="btn btn--outline">Start a project</a>
+        </div>
+      </div>
+
+      <div class="board" role="img" aria-label="Departures board with my profile summary">
+        <div class="board__header">
+          <span>DEPARTURES</span>
+          <span id="clock">00:00:00</span>
+        </div>
+        <div class="board__rows">
+          <div class="board__row">
+            <span class="board__field board__field--code">ROLE</span>
+            <span class="board__field board__field--flap" data-flap="FRONTEND DEVELOPER"></span>
+            <span class="board__field board__field--status status--ontime">ON TIME</span>
+          </div>
+          <div class="board__row">
+            <span class="board__field board__field--code">BASED</span>
+            <span class="board__field board__field--flap" data-flap="REMOTE / WORLDWIDE"></span>
+            <span class="board__field board__field--status status--ontime">ON TIME</span>
+          </div>
+          <div class="board__row">
+            <span class="board__field board__field--code">STACK</span>
+            <span class="board__field board__field--flap" data-flap="HTML / CSS / JS / REACT"></span>
+            <span class="board__field board__field--status status--boarding">BOARDING</span>
+          </div>
+          <div class="board__row">
+            <span class="board__field board__field--code">NEXT</span>
+            <span class="board__field board__field--flap" data-flap="YOUR PROJECT"></span>
+            <span class="board__field board__field--status status--boarding">GATE OPEN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT — boarding pass -->
+  <section class="section" id="about">
+    <p class="section__eyebrow">01 — PROFILE</p>
+    <h2 class="section__title">About me</h2>
+
+    <div class="about">
+      <div class="about__text">
+        <p>
+          I've spent the last few years focused on the part of a website people
+          actually touch: the layout, the interactions, the small details that make
+          something feel finished instead of assembled.
+        </p>
+        <p>
+          I work well both from a finished Figma file and from a rough brief —
+          if there's no design yet, I'll structure the page myself around what it
+          needs to do and who it's for.
+        </p>
+        <p>
+          Code I hand over is meant to be picked up by someone else without a
+          walkthrough: consistent naming, components that do one thing, and no
+          hidden logic buried three files deep.
+        </p>
+      </div>
+
+      <div class="boarding-pass" aria-hidden="true">
+        <div class="boarding-pass__notch boarding-pass__notch--top"></div>
+        <div class="boarding-pass__main">
+          <p class="boarding-pass__label">PASSENGER</p>
+          <p class="boarding-pass__value">DARIUSH</p>
+          <div class="boarding-pass__grid">
+            <div><span>FROM</span><strong>IDEA</strong></div>
+            <div><span>TO</span><strong>PRODUCTION</strong></div>
+            <div><span>CLASS</span><strong>FRONTEND</strong></div>
+            <div><span>SEAT</span><strong>4+ YRS EXP</strong></div>
+          </div>
+        </div>
+        <div class="boarding-pass__stub">
+          <p class="boarding-pass__label">GATE</p>
+          <p class="boarding-pass__value">30+</p>
+          <span class="boarding-pass__sub">projects shipped</span>
+        </div>
+        <div class="boarding-pass__notch boarding-pass__notch--bottom"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK — boarding pass style project cards -->
+  <section class="section section--alt" id="work">
+    <p class="section__eyebrow">02 — WORK</p>
+    <h2 class="section__title">Selected work</h2>
+    <p class="section__lead">Three projects that show how I approach different kinds of interfaces — a marketing page, a data-heavy dashboard, and a small interactive app.</p>
+
+    <div class="tickets">
+
+      <article class="ticket">
+        <div class="ticket__preview ticket__preview--hive">
+          <span class="ticket__ext">.html</span>
+        </div>
+        <div class="ticket__body">
+          <div class="ticket__row">
+            <h3>Hex &amp; Hive</h3>
+            <span class="ticket__code">LND-01</span>
+          </div>
+          <p class="ticket__tag">Landing page · HTML / CSS / JS</p>
+          <p>Marketing site for an urban beekeeping brand, built around an actual honeycomb grid layout instead of a generic feature list.</p>
+          <div class="ticket__stack"><span>Vanilla JS</span><span>CSS Grid</span><span>Scroll reveals</span></div>
+          <a href="../landing-hexhive/index.html" class="ticket__link">Open project →</a>
+        </div>
+      </article>
+
+      <article class="ticket">
+        <div class="ticket__preview ticket__preview--greengrid">
+          <span class="ticket__ext">.js</span>
+        </div>
+        <div class="ticket__body">
+          <div class="ticket__row">
+            <h3>GreenGrid</h3>
+            <span class="ticket__code">DSH-02</span>
+          </div>
+          <p class="ticket__tag">Dashboard · HTML / CSS / JS + Chart.js</p>
+          <p>Climate monitoring dashboard for greenhouse zones — live-looking charts, a radial humidity gauge and a sortable sensor table.</p>
+          <div class="ticket__stack"><span>Chart.js</span><span>CSS Variables</span><span>Dark UI</span></div>
+          <a href="../dashboard-greengrid/index.html" class="ticket__link">Open project →</a>
+        </div>
+      </article>
+
+      <article class="ticket">
+        <div class="ticket__preview ticket__preview--focusring">
+          <span class="ticket__ext">.jsx</span>
+        </div>
+        <div class="ticket__body">
+          <div class="ticket__row">
+            <h3>Focus Ring</h3>
+            <span class="ticket__code">APP-03</span>
+          </div>
+          <p class="ticket__tag">Web app · React</p>
+          <p>A focus-timer app with an animated progress ring, session history and stats, persisted with localStorage.</p>
+          <div class="ticket__stack"><span>React</span><span>Hooks</span><span>SVG animation</span></div>
+          <a href="../focusring-react/README.md" class="ticket__link">Open project →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="section" id="stack">
+    <p class="section__eyebrow">03 — STACK</p>
+    <h2 class="section__title">What I work with</h2>
+
+    <div class="stack">
+      <div class="stack__group">
+        <h3>Core</h3>
+        <ul>
+          <li>Semantic HTML5</li>
+          <li>CSS — Grid, Flexbox, animations</li>
+          <li>JavaScript (ES6+)</li>
+          <li>TypeScript — comfortable reading and writing</li>
+        </ul>
+      </div>
+      <div class="stack__group">
+        <h3>Ecosystem</h3>
+        <ul>
+          <li>React — hooks, context</li>
+          <li>Git &amp; GitHub, pull request reviews</li>
+          <li>Figma to pixel-accurate markup</li>
+          <li>Vite for quick, sane build setups</li>
+        </ul>
+      </div>
+      <div class="stack__group">
+        <h3>Workflow</h3>
+        <ul>
+          <li>BEM or CSS Modules for styling</li>
+          <li>Manual testing across real devices</li>
+          <li>Accessibility as a default, not an afterthought</li>
+          <li>Clear, atomic commits</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT — check-in counter -->
+  <section class="section section--alt" id="contact">
+    <p class="section__eyebrow">04 — CONTACT</p>
+    <h2 class="section__title">Let's build something</h2>
+
+    <div class="contact">
+      <div class="contact__info">
+        <p>
+          Tell me briefly what you need — the format, rough scope, deadline —
+          and I'll get back to you within a day.
+        </p>
+        <div class="contact__links">
+          <a href="mailto:zanevskidariush08@gmail.com">zanevskidariush08@gmail.com</a>
+          <a href="https://github.com/zanevskidariush" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.fiverr.com/" target="_blank" rel="noopener">Fiverr profile</a>
+        </div>
+      </div>
+
+      <form class="contact__form" id="contactForm">
+        <p class="contact__form-label">CHECK-IN — new project</p>
+        <label class="field">
+          <span>Name</span>
+          <input type="text" name="name" required placeholder="Your name">
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="you@example.com">
+        </label>
+        <label class="field">
+          <span>Project brief</span>
+          <textarea name="message" rows="4" required placeholder="What are you building?"></textarea>
+        </label>
+        <button type="submit" class="btn btn--primary btn--full">Send message</button>
+        <p class="contact__note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span>© <span id="year"></span> Dariush</span>
+    <span class="footer__strip"><span>GATE A1</span><span>STATUS: ON TIME</span><span>FRONTEND DEVELOPER</span></span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
