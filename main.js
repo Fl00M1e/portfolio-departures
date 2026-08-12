@@ -1,7 +1,4 @@
-/**
- * main.js
- * No build step, no dependencies — plain DOM APIs.
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
@@ -17,9 +14,7 @@ function setYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* -------------------------------------------------------
- * Live clock in the board header, like a real departures sign.
- * ----------------------------------------------------- */
+
 function initClock() {
   const el = document.getElementById('clock');
   if (!el) return;
@@ -30,10 +25,7 @@ function initClock() {
   setInterval(update, 1000);
 }
 
-/* -------------------------------------------------------
- * Split-flap reveal: each line scrambles through random
- * characters before settling on its final text, left to right.
- * ----------------------------------------------------- */
+
 const FLAP_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 function initFlapBoard() {
@@ -46,7 +38,7 @@ function initFlapBoard() {
       field.textContent = finalText;
       return;
     }
-    // stagger each row so they don't all flip at once
+   
     setTimeout(() => animateFlap(field, finalText), index * 350);
   });
 }
@@ -79,9 +71,7 @@ function animateFlap(field, finalText) {
   }, 40);
 }
 
-/* -------------------------------------------------------
- * Mobile nav toggle
- * ----------------------------------------------------- */
+
 function initMobileNav() {
   const burger = document.getElementById('burger');
   const nav = document.getElementById('nav');
@@ -100,9 +90,7 @@ function initMobileNav() {
   });
 }
 
-/* -------------------------------------------------------
- * Back-to-top button
- * ----------------------------------------------------- */
+
 function initScrollToTop() {
   const btn = document.getElementById('toTop');
   if (!btn) return;
@@ -112,15 +100,13 @@ function initScrollToTop() {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* -------------------------------------------------------
- * Contact form — demo only, no real submission.
- * Swap fakeSubmit() for a real fetch() call to your backend
- * or a form service (Formspree, Getform, etc).
- * ----------------------------------------------------- */
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
   if (!form || !note) return;
+
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjybryoa'; // ← вставь сюда свою ссылку
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -128,21 +114,25 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
-    fakeSubmit(new FormData(form)).then(() => {
-      note.textContent = "Thanks — this demo form doesn't send anywhere yet. Wire it up to your own inbox or a form service before going live.";
-      form.reset();
-    }).finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send message';
-    });
-  });
-}
-
-function fakeSubmit(formData) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('Demo form data:', Object.fromEntries(formData));
-      resolve();
-    }, 500);
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    })
+      .then((response) => {
+        if (response.ok) {
+          note.textContent = 'Thanks! Your message has been sent — I\'ll get back to you soon.';
+          form.reset();
+        } else {
+          note.textContent = 'Something went wrong sending your message. Please email me directly instead.';
+        }
+      })
+      .catch(() => {
+        note.textContent = 'Something went wrong sending your message. Please email me directly instead.';
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      });
   });
 }
